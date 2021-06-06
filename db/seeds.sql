@@ -1,3 +1,6 @@
+-- USE employee; do i need this?
+
+
   INSERT INTO department (name)
 VALUES
   ('Customer Service'),
@@ -13,7 +16,7 @@ VALUES
 
   INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-  ('Simon', 'Hissong', 1, ),
-  ('Karina', 'Marie', 2, ),
+  ('Simon', 'Hissong', 1, 4),
+  ('Karina', 'Marie', 2, 4),
   ('Nico', 'Hissong', 3, NULL),
   ('Chris', 'Kraus', 4, NULL);

@@ -1,18 +1,18 @@
 const mysql = require('mysql2');
 
 
-require('dotenv').config();
+// require('dotenv').config();
 
 // Connect to database
-const db = mysql.createConnection(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
-    host: 'localhost',
+// const db = mysql.createConnection(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+//     host: 'localhost',
     // Your MySQL username,
     // user: '',
     // Your MySQL password,
     // password: '',
     // database: 'employee'
-  });
-  console.log('Connected to the Employee database.')
+  // });
+  // console.log('Connected to the Employee database.')
 
 
 
@@ -21,14 +21,14 @@ const db = mysql.createConnection(process.env.DB_NAME, process.env.DB_USER, proc
 const db = mysql.createConnection({
   host: 'localhost',
   // Your MySQL username,
-  user: '',
+  user: 'root',
   // Your MySQL password,
-  password: '',
+  password: 'Lisasays7!',
   database: 'employee'
 });
-// console.log('Connected to the Employee database.')  
+console.log('Connected to the Employee database.')  
 
 
 
 
-  module.exports = db;
+module.exports = db;
