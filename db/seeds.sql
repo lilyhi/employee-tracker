@@ -1,4 +1,4 @@
--- USE employee; do i need this?
+-- USE employee_db; do i need this?
 
 
   INSERT INTO department (name)
