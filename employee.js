@@ -41,7 +41,7 @@ function startApp() {
         case "Add a department":
           addDepartment();
           break;
-        case "Add a role'":
+        case "Add a role":
           addRole();
           break;
         case "Add an employee":
@@ -103,7 +103,7 @@ function viewEmployees() {
 }
 
 function addDepartment() {
-  console.log("adding a new Department");
+  // console.log("adding a new Department");
   inquirer
     .prompt([
       {
@@ -129,7 +129,7 @@ function addDepartment() {
 
 // exit app for some reason
 function addRole() {
-  console.log("adding a new role");
+  // console.log("adding a new role");
   inquirer
     .prompt([
       {
@@ -148,7 +148,7 @@ function addRole() {
         message: "Please enter the department ID",
       },
     ])
-    .then((roleDept) => {
+    .then((answerRole) => {
       db.query(
         "INSERT INTO role SET ?",
         { title: answerRole.title, 
@@ -164,9 +164,9 @@ function addRole() {
       );
     });
 }
-// answerEmployee is not defined
+
 function addEmployee() {
-  console.log("adding a new employee");
+  // console.log("adding a new employee");
   inquirer
     .prompt([
       {
@@ -208,7 +208,9 @@ function addEmployee() {
     });
 }
 
-function updateRole() {}
+function updateRole() {
+  
+}
 
 // Function call to initialize app
 startApp();
