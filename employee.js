@@ -3,9 +3,6 @@ const db = require("./db/connection");
 const mysql = require("mysql2");
 const cTable = require("console.table");
 
-// WHEN I start the application
-// THEN I am presented with the following options: view all departments, view all roles,
-// view all employees, add a department, add a role, add an employee, and update an employee role
 
 // inquirer - Create questions for user input
 function startApp() {
@@ -62,22 +59,21 @@ function startApp() {
     });
 } //END START OF APP FUNCTION
 
-// WHEN I choose to view all departments
-// THEN I am presented with a formatted table showing department names and department ids
 
-// selected ALL DEPTS
+// selected View Depts
 function viewDepartments() {
   db.query("SELECT * FROM department", (error, response) => {
     if (error) {
       console.log(error);
     }
-    //Display department data in table
+    // Display department data in table
     console.table(response);
-    //ask the questions again
+    // ask the questions again
     startApp();
   });
 }
 
+// selected View all roles
 function viewRoles() {
   db.query("SELECT * FROM role", (error, response) => {
     if (error) {
@@ -90,6 +86,7 @@ function viewRoles() {
   })
 }
 
+// selected View employees
 function viewEmployees() {
   db.query("SELECT * FROM employee", (error, response) => {
     if (error) {
@@ -102,8 +99,9 @@ function viewEmployees() {
   })
 }
 
+// selected Add dept
 function addDepartment() {
-  // console.log("adding a new Department");
+  console.log("Adding a new Department");
   inquirer
     .prompt([
       {
@@ -127,9 +125,9 @@ function addDepartment() {
     });
 }
 
-// exit app for some reason
+// selected Add role
 function addRole() {
-  // console.log("adding a new role");
+  console.log("Adding a new role");
   inquirer
     .prompt([
       {
@@ -165,8 +163,9 @@ function addRole() {
     });
 }
 
+// selected Add employee
 function addEmployee() {
-  // console.log("adding a new employee");
+  console.log("Adding a new employee");
   inquirer
     .prompt([
       {
@@ -208,9 +207,31 @@ function addEmployee() {
     });
 }
 
-function updateRole() {
-  
-}
+// selected Update role
+// function updateRole() {
+//   console.log("Update role");
+
+// }
 
 // Function call to initialize app
 startApp();
+
+
+
+// const sql = `SELECT * FROM employee LEFT JOIN role ON employee.role_id = role.id;`
+
+// db.query(sql, (error, response) => {
+    // console.log(error);
+
+    // console.log();
+// })
+
+// job titles(role), departments, salaries, and managers(not id)
+// SELECT * FROM employee 
+// LEFT JOIN role ON employee.role_id = role.id;
+
+// SELECT employee.*, role.role_id AS title
+// FROM employee
+// LEFT JOIN role ON employee.role_id = role.id;
+
+// SELECT employee 
